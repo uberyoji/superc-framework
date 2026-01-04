@@ -143,6 +143,8 @@
 </div>
 <div id="mouse-tracker">X: 0 Y: 0</div>
 <canvas id="mainCanvas"></canvas>
+<script src="psystem.js"></script>
+<script src="3d.js"></script>
 <script src="app.js"></script>
 <script>
 const DEFAULT_CONFIG = { 
@@ -304,7 +306,7 @@ function addSlider(cat, label, min, max, val, step, cb) {
     row.className = 'slider-row'; 
     const minL = document.createElement('span'); 
     minL.className = 'limit-label'; 
-    minL.textContent = min; 
+    minL.textContent = min.toFixed(2); 
     const input = document.createElement('input'); 
     input.type = 'range'; 
     input.min = min; 
@@ -313,10 +315,10 @@ function addSlider(cat, label, min, max, val, step, cb) {
     input.value = val; 
     const maxL = document.createElement('span'); 
     maxL.className = 'limit-label'; 
-    maxL.textContent = max; 
+    maxL.textContent = max.toFixed(2); 
     const disp = document.createElement('span'); 
     disp.className = 'val-display'; 
-    disp.textContent = val; 
+    disp.textContent = val.toFixed(2); 
     input.oninput = (e) => { 
         const v = parseFloat(e.target.value); 
         disp.textContent = step >= 1 ? v : v.toFixed(2); 
